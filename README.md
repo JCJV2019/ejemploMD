@@ -4,7 +4,7 @@
 
 Aplicación de Angular 8 para la ayuda a la toma de decisiones.
 
-Se ha de introducir la pregunta o decisión atomar
+Se ha de introducir la pregunta o decisión a tomar
 
 	Se introducirán los aspectos positivos con una valoración para cada uno de 1 a 4.
 	Se introducirán los aspectos negativos con una valoración para cada uno de 1 a 4.
@@ -16,6 +16,17 @@ Se ha de introducir la pregunta o decisión atomar
 ## Primeras ideas (Wareframes)
 
 ![Wireframe1](https://jcjv2019.github.io/ejemploMD/imagenes/Wireframe1.jpg "wireframe1")
+
+# Iteración 1
+
+Aplicación con CRUD para los items Positivos y Negativos. Estructura de los Items:
+  'id': string;
+  'desc': string;
+  'point': number;
+  'question': string;
+Menu en dos componentes navbar y side-navbar; con Home, Helper, Login/Logout y Register
+
+    El directorio de json-server
 
 ## Sabado y Domingo
 
@@ -49,18 +60,27 @@ Ajustes de refresco de los inputs...
 
 Realizamos ajustes a la presentación obtenemos una primera versión con bootstrap.
 Ajustes del menu navbar y side-navbar
+Añadimos el boton de borrar la pregunta y recomenzar de nuevo
 
 ![Bootstrap1](https://jcjv2019.github.io/ejemploMD/imagenes/Imagen2.jpg "Con Bootstrap 1ª")
 
 Problemas: 
 
 Cuando haciamos Logout desde el side-navbar no se enteraba el navbar y no se coordinaban en el estado controlado por isLogged.
+Al añadir el botón de borrar la pregunta no refrescaba la vista, ya que no utilizamos Form.
 
 ## Martes
 
 Terminamos ajustes de Login y Register; register con Nombre, email y password.
 Resolvemos el problema entre el navbar y el side-navbar. Para cambiar el valor de isLooged del navbar desde el side-navbar utilizamos:
-@ViewChild('NavbarComponent', {static: true}) public navbar: NavbarComponent;
+@ViewChild('NavbarComponent', {static: true}) public navbar: NavbarComponent.
+Este decorador nos da acceso al componente que queramos desde otro.
+Resolvemos el refresco de la vista con una promesa que encontramos:
+
+    this.routeOut.navigateByUrl('/RefrshComponent', { skipLocationChange: true }).then(() =>
+      this.routeOut.navigate(['/member-list']));
+
+Esta fromesa nos permite refrescar la vista de /member-list
 
 ![Final1](https://jcjv2019.github.io/ejemploMD/imagenes/Imagen3.png "Final Bootstrap")
 ![Final2](https://jcjv2019.github.io/ejemploMD/imagenes/Imagen4.png "Final Bootstrap")
@@ -74,6 +94,10 @@ En la subida a producción error de MIME.
 Solventamos el error de MIME. Se trataba de la imagen en svg que no era soportada y la hemos cambiado por un jpg.
 Ultimas pruebas y subida a producción.
 
+# Iteración 2 (En un futuro)
 
+Hacer que la aplicación pueda guardar n preguntas asociadas a un usuario concreto. Cada usuario tendrá sus preguntas. (Multiusuario-Multipreguntas).
 
+# Iteración 3 (En un futuro)
 
+Hacer una estadística de preguntas, items y puntuación, valoraciones positivas, negativas y neutras...
