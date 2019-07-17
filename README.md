@@ -26,7 +26,10 @@ Aplicación con CRUD para los items Positivos y Negativos. Estructura de los Ite
   'question': string;
 Menu en dos componentes navbar y side-navbar; con Home, Helper, Login/Logout y Register
 
-    El directorio de json-server
+    El directorio de json-server contiene la API para Logearse con los usuarios y los items positivos y negativos para el entorno de desarrollo
+
+    Se ha hospedado la API en Heroku en la dirección https://json-server-decision-helper.herokuapp.com/
+    Se ha hospedado la aplicación en GITHUB en https://jcjv2019.github.io/Decision-Helper/
 
 ## Sabado y Domingo
 
