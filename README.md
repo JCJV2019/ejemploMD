@@ -76,8 +76,11 @@ Al añadir el botón de borrar la pregunta no refrescaba la vista, ya que no uti
 
 Terminamos ajustes de Login y Register; register con Nombre, email y password.
 Resolvemos el problema entre el navbar y el side-navbar. Para cambiar el valor de isLooged del navbar desde el side-navbar utilizamos:
-@ViewChild('NavbarComponent', {static: true}) public navbar: NavbarComponent.
+
+    @ViewChild('NavbarComponent', {static: true}) public navbar: NavbarComponent.
+
 Este decorador nos da acceso al componente que queramos desde otro.
+
 Resolvemos el refresco de la vista con una promesa que encontramos:
 
     this.routeOut.navigateByUrl('/RefrshComponent', { skipLocationChange: true }).then(() =>
